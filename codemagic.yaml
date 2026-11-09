@@ -22,6 +22,8 @@ workflows:
           mkdir -p Payload
           cp -r build/Build/Products/Release-iphoneos/LauncherShell.app Payload/
           zip -qr LauncherShell-unsigned.ipa Payload
-          zip -qr LauncherShell-unsigned.zip LauncherShell-unsigned.ipa
+          mkdir -p dist
+          cp LauncherShell-unsigned.ipa dist/
+          zip -qr LauncherShell-unsigned.zip dist
     artifacts:
       - LauncherShell-unsigned.zip
