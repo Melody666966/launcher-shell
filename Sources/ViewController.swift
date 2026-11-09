@@ -2,7 +2,7 @@ import UIKit
 import WebKit
 import UniformTypeIdentifiers
 
-final class ViewController: UIViewController, UIDocumentPickerDelegate {
+final class ViewController: UIViewController, UIDocumentPickerDelegate, WKNavigationDelegate {
     private var webView: WKWebView!
     private var docs: URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -21,6 +21,7 @@ final class ViewController: UIViewController, UIDocumentPickerDelegate {
         webView = WKWebView(frame: view.bounds)
         webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         webView.scrollView.contentInsetAdjustmentBehavior = .never
+        webView.navigationDelegate = self
         view.addSubview(webView)
         reloadPage()
 
@@ -40,6 +41,30 @@ final class ViewController: UIViewController, UIDocumentPickerDelegate {
         webView.loadFileURL(docs.appendingPathComponent("launcher.html"), allowingReadAccessTo: docs)
     }
 
+    private func hasGameFolder() -> Bool {
+        let game = docs.appendingPathComponent("playgta5-offline")
+        var isDir: ObjCBool = false
+        return FileManager.default.fileExists(atPath: game.path, isDirectory: &isDir) && isDir.boolValue
+    }
+
+    private func applyState() {
+        guard hasGameFolder() else { return }
+        let js = """
+        (function(){
+          var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n;
+          while(n=w.nextNode()){
+            if(n.nodeValue.indexOf('尚未导入')>=0) n.nodeValue=n.nodeValue.replace(/尚未导入/g,'已导入');
+            if(n.nodeValue.indexOf('无法启动')>=0) n.nodeValue=n.nodeValue.replace(/无法启动/g,'可以启动');
+          }
+        })();
+        """
+        webView.evaluateJavaScript(js, completionHandler: nil)
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        applyState()
+    }
+
     @objc private func pickFolder() {
         let picker = UIDocumentPickerViewController(forOpeningContentTypes: [.folder])
         picker.delegate = self
@@ -51,7 +76,6 @@ final class ViewController: UIViewController, UIDocumentPickerDelegate {
         guard let src = urls.first else { return }
         let got = src.startAccessingSecurityScopedResource()
         defer { if got { src.stopAccessingSecurityScopedResource() } }
-
         let dst = docs.appendingPathComponent(src.lastPathComponent)
         let fm = FileManager.default
         if fm.fileExists(atPath: dst.path) { try? fm.removeItem(at: dst) }
@@ -59,7 +83,7 @@ final class ViewController: UIViewController, UIDocumentPickerDelegate {
             try fm.copyItem(at: src, to: dst)
             reloadPage()
             let ok = UIAlertController(title: "已导入",
-                message: "\(src.lastPathComponent) 已连同内容放进启动器", preferredStyle: .alert)
+                message: "\(src.lastPathComponent) 已放进启动器", preferredStyle: .alert)
             ok.addAction(UIAlertAction(title: "好", style: .default))
             present(ok, animated: true)
         } catch {
