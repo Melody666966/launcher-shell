@@ -1,0 +1,21 @@
+name: LauncherShell
+options:
+  bundleIdPrefix: com.launcher.test
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  LauncherShell:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+      - path: launcher.html
+        buildPhase: resources
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: Launcher
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+        UIStatusBarHidden: true
+        UIViewControllerBasedStatusBarAppearance: false
