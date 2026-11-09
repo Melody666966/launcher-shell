@@ -1,0 +1,29 @@
+name: build-ipa
+on:
+  push:
+    branches: [main]
+    paths: ['launcher.html']
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: xcodegen
+        run: |
+          brew install xcodegen
+          xcodegen generate
+      - name: build unsigned ipa
+        run: |
+          xcodebuild -project LauncherShell.xcodeproj \
+            -scheme LauncherShell -configuration Release -sdk iphoneos \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            -derivedDataPath build
+          mkdir -p Payload
+          cp -r build/Build/Products/Release-iphoneos/LauncherShell.app Payload/
+          zip -qr LauncherShell-unsigned.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LauncherShell-unsigned
+          path: LauncherShell-unsigned.ipa
