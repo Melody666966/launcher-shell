@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#0c1c2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>启动器</title>
+<link rel="icon" href="data:,">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFMUlEQVR4nO3dsW4UMRCAYQdRIUFDGWpanoqWJ6DME9DmqdJS09KkSE1hdErudrwee2yP7f9rg7Qn/DPevfORu4/3XwNw5N3oFwC/iAMi4oCIOCAiDojej7rw88PLqEvP6NPPD/0vetfzUZYgTHQLpUccNNFI60oaxkET3TSqpEkcZDGEeSLGcZDFcIaJWMahLePL4zerS6/tz/cn1Z+36sMmjswsqMFEZiv1iRjEkVMGWZjLSaSyj9o40mXQRAfpSmr6KI+DLFxpkUjhZyuU4U3677zsKbJkciSuRBbDJUaIdn6oJwdlOJdYBe38MPvInjL8sFoLXRxSepThjbQiquGhiIMy5lLfR24clDGjyj6qToKly/j8681z0N8fv2uuhTJfHr9pP5q5yHqUPQwtUcZVFq+RyBCHfZw+2Z5vK4ZlnP4UjRyu1+nmYnz6PGft6WMWJ3Goxkb+qtNHfwXDQz05eDyZl3btUnGo3jDRDgOGhxOJVdZNDsbG7FQryNchIRLj4Bz5PqS1VkwO9pQ15K+j2baifeuTt0r9O47jds4wNlZyu5qHO4vlDWn+MGBsTMH4aSVn1SljFvaPsum1p4yJHJznqH+IjQVwnmMuzw8vVx/iZx32KbsbpQbPcg4B8Q4pRMQBEXFARBwQEQdExAERcUBEHBARB0TEAdGCcRR/NRRXFowjhPDn+xOJ1Fszjog+Kq0cR2CE1Fk8johEymwRR0QfWhvFERghSnvFEZFIph3jiOjj1L5xBEbIma3jiEhEQhz/kcgt4niDPl4jjmuMkAviOEYigTjSNu+DOE7sPEKII8ueiRCHwm59EIfOViOEOEpskghxlFu+D+KosvYIIQ4DqyZCHGbW64M4LC02QojD3jKJEEcrC/RBHA3NPkKIo7l5EyGOTmZMhDi6mqsP4uhtohFCHGNMkQhxjOS8D+IYzPMIIQ4XfCZCHI5464M4fHE1QrJ+UxO6cfUrWpkcjrgqIzA5nPCWRUQcg/nMImJbGclzGYHJMYrzLCLi6G2KLCK2la4mKiMwObqZK4uIOJqbMYuIOBqaN4uIe45WZi8jMDlaWCCLiDgsLZNFxLZiZrEyApPDxHpZRMRRZdUsIraVcmuXEZgcZZbPIiIOnU2yiNhWFLYqIzA5Mu2WRUQcJ/bMImJbSdm5jMDkkGyeRUQc18jigm3lDcp4jcnxH1ncIg6yEG0dB1mk7XvPQRmndpwcZJFprzjIQmWjbYUytLaYHGRRZvE4yKLGytsKZVRac3KQhYkFJwdlWFkwDlghDoiIAyLigIg4ICIOiIgDIuKAiDggIg6IsuLw87uDYCVnTQ/i+PTzQ4MXA+9u151tBSLigIg4IDqO43b74Z50JbereXijyeSASBEHw2MN+esoxsED7T6ktWZbgUgXBzvL7FQrmIqDnWUHiVVWbysMj3lp1+4kjsOs6GNGh6uW3hy4IYXoPA6GxwIKxkbInBz0MbWyMkLltkIf/tWsUW4cUmj04Zm0OplvUigmB33MpbKMoN1W6GMW9WUEw0dZ+vDDai3UcSTSow8PEqug/Tzk7uP914JX8Pzwkvgp/7fOEOl/nAWflBVuK+krMUL6My8jFE+OC0bIcC2yiGrjCGd9RFRiLmc8Vx66MIgj5PURSMRI5q5dfxzHJo4oM5ELWsmkvYezOqVlGUfQ9wFzhuf3jOOISGQI82OdTeKISKSbRqd9G8ZxQSWNtD4B3iOOCyox0e1bAV3jeI1QVIZ8TWRYHPCP0+cQEQdExAERcUD0D47D5muuL+0bAAAAAElFTkSuQmCC">
+<style>
+:root{
+  --accent:#ff9f1c;
+  --card:rgba(255,255,255,.13);
+  --card-strong:rgba(20,34,44,.42);
+  --line:rgba(255,255,255,.18);
+  --txt:#f2f6f8;
+  --sub:rgba(242,246,248,.72);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none}
+body{
+  background:linear-gradient(112deg,#0b1c29 0%,#123243 34%,#1c5c6b 66%,#3a96a4 100%);
+  color:var(--txt);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+#app{position:fixed;inset:0;overflow:hidden}
+.bg-art{position:absolute;inset:auto 0 0;width:100%;height:70%;opacity:.9;pointer-events:none}
+
+/* ---- 右侧插画槽位 ---- */
+.hero{position:absolute;right:0;top:0;bottom:0;width:52%;display:flex;
+  align-items:stretch;justify-content:center;pointer-events:none}
+.hero img{width:100%;height:100%;object-fit:contain;object-position:right bottom}
+.hero-ph{position:relative;width:100%;height:100%;overflow:hidden}
+.hero-sun{position:absolute;right:8%;top:8%;width:min(46vw,520px);height:min(46vw,520px);
+  border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(255,236,190,.42),rgba(255,190,110,.10) 60%,transparent 72%);}
+.hero-txt{position:absolute;right:6%;bottom:12%;text-align:right;font-size:clamp(16px,2.2vw,26px);
+  font-weight:600;letter-spacing:1px;color:rgba(255,255,255,.36);line-height:1.5}
+.hero-txt small{font-size:.55em;font-weight:400;opacity:.75;letter-spacing:.5px}
+
+/* ---- 右上角圆钮 ---- */
+.top-tools{position:absolute;right:clamp(16px,2.4vw,34px);top:clamp(16px,2.6vh,30px);
+  display:flex;gap:clamp(8px,1.2vw,16px);z-index:5}
+.top-tools button{width:clamp(44px,4.2vw,62px);height:clamp(44px,4.2vw,62px);
+  border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;
+  display:grid;place-items:center;touch-action:manipulation;backdrop-filter:blur(6px)}
+.top-tools button:active{background:rgba(255,255,255,.28)}
+.top-tools svg{width:52%;height:52%}
+
+/* ---- 左栏 ---- */
+.panel{position:relative;z-index:2;width:min(52%,720px);height:100%;
+  padding:clamp(24px,4.2vh,54px) 0 clamp(20px,3vh,40px) clamp(24px,5.5vw,96px);
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,1.8vh,20px)}
+.brand{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);margin-bottom:clamp(4px,1vh,12px)}
+.logo{width:clamp(58px,6.2vw,88px);height:clamp(58px,6.2vw,88px);flex:none;
+  border-radius:clamp(14px,1.6vw,22px);
+  background:linear-gradient(160deg,#1746b8,#0f2f8c);
+  display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.logo span{width:56%;height:56%;display:block;
+  background:linear-gradient(180deg,#ffd35a 0%,#ff9f1c 52%,#2e8f6b 53%,#155a72 100%);
+  clip-path:polygon(0 0,100% 0,50% 100%);border-radius:4px}
+.brand-txt{min-width:0}
+h1{margin:0;font-size:clamp(30px,4.6vw,64px);font-weight:800;letter-spacing:.5px;line-height:1.05}
+#subtitle{margin:clamp(4px,.8vh,10px) 0 0;font-size:clamp(13px,1.5vw,21px);
+  color:var(--sub);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ---- 校验卡 ---- */
+.check-card{display:flex;align-items:center;gap:clamp(12px,1.4vw,20px);
+  background:var(--card-strong);border:1px solid var(--line);
+  border-radius:clamp(18px,2vw,28px);
+  padding:clamp(14px,2vh,24px) clamp(16px,1.8vw,26px);
+  min-height:clamp(74px,10vh,112px);cursor:pointer;touch-action:manipulation}
+.check-card:active{background:rgba(20,34,44,.6)}
+.dot{width:clamp(30px,3vw,44px);height:clamp(30px,3vw,44px);border-radius:50%;
+  background:#3a5570;color:#fff;display:grid;place-items:center;flex:none;
+  font-size:clamp(16px,1.8vw,24px);font-weight:800;transition:background .2s}
+.dot.ok{background:#2ecc71}
+.dot.warn{background:#e0a02a}
+.check-txt{flex:1;min-width:0}
+.check-txt b{display:block;font-size:clamp(16px,2vw,28px);font-weight:700;letter-spacing:.3px}
+.check-txt small{display:block;margin-top:clamp(3px,.5vh,7px);
+  font-size:clamp(12px,1.3vw,18px);color:var(--sub);line-height:1.45}
+.chev{font-size:clamp(26px,3vw,42px);color:rgba(255,255,255,.55);flex:none;line-height:1}
+
+.import-row{display:flex;align-items:center;gap:14px;margin-top:-4px;padding-left:4px;
+  font-size:clamp(11px,1.1vw,14px);color:rgba(255,255,255,.55);min-height:18px}
+.link{background:none;border:0;color:rgba(255,209,140,.92);font-size:inherit;
+  padding:2px 0;text-decoration:underline;text-underline-offset:3px;touch-action:manipulation}
+#importMeta{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.zip-box{background:var(--card-strong);border:1px solid var(--line);
+  border-radius:clamp(14px,1.6vw,20px);padding:clamp(12px,1.6vh,18px);
+  margin-top:2px}
+.zip-box[hidden]{display:none}
+.zip-head{font-size:clamp(13px,1.4vw,18px);font-weight:600;color:#ffd28a;margin-bottom:10px}
+.zip-list{display:flex;flex-wrap:wrap;gap:8px;max-height:22vh;overflow-y:auto}
+.zip-list button{padding:9px 12px;border-radius:10px;border:1px solid var(--line);
+  background:rgba(255,255,255,.10);color:var(--txt);font-size:clamp(12px,1.2vw,15px);
+  touch-action:manipulation;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.zip-list button.on{border-color:var(--accent);color:var(--accent);background:rgba(255,159,28,.12)}
+.zip-box small{display:block;margin-top:10px;font-size:clamp(11px,1.1vw,14px);
+  color:rgba(255,255,255,.55);line-height:1.5}
+
+/* ---- 双模式 ---- */
+.tabs{display:flex;gap:clamp(10px,1.2vw,18px)}
+.tabs button{flex:1;display:flex;align-items:center;justify-content:center;
+  gap:clamp(8px,1vw,14px);
+  min-height:clamp(58px,8vh,86px);
+  border:2px solid transparent;border-radius:clamp(14px,1.6vw,22px);
+  background:var(--card);color:var(--txt);
+  font-size:clamp(16px,1.9vw,26px);font-weight:600;
+  touch-action:manipulation}
+.tabs button svg{width:clamp(20px,2.2vw,30px);height:clamp(20px,2.2vw,30px);flex:none}
+.tabs button.on{border-color:var(--accent);color:var(--accent);background:rgba(255,159,28,.10)}
+.hint{margin:0;font-size:clamp(13px,1.45vw,20px);color:var(--sub);min-height:1.6em}
+
+/* ---- 游玩按钮 ---- */
+.play{position:relative;overflow:hidden;width:100%;
+  min-height:clamp(64px,9vh,104px);border:0;border-radius:999px;
+  background:var(--accent);color:#141a1e;
+  font-size:clamp(22px,2.7vw,38px);font-weight:800;letter-spacing:2px;
+  touch-action:manipulation;isolation:isolate}
+.play-fill{position:absolute;inset:0;width:0;background:rgba(0,0,0,.14);z-index:-1;
+  transition:width .12s linear}
+.play-inner{position:relative;display:flex;align-items:center;justify-content:center;gap:14px}
+.tri{font-size:.8em;line-height:1}
+.play:disabled{opacity:.85}
+.ready{margin:clamp(-2px,-.4vh,0) 0 0;font-size:clamp(12px,1.25vw,18px);
+  color:var(--sub);padding-left:4px}
+
+/* ---- 运行层 ---- */
+#stage{position:fixed;inset:0;background:#0d1b26;z-index:10}
+#stage[hidden]{display:none}
+#frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:#0d1b26}
+#hud{position:absolute;left:0;right:0;top:0;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  padding:calc(env(safe-area-inset-top) + 10px) 14px 10px;font-size:12px;z-index:3;
+  background:linear-gradient(#0009,transparent);pointer-events:none}
+#hud span{background:#0009;border:1px solid #ffffff22;border-radius:99px;padding:4px 10px;max-width:60vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#exit,#bLog{margin-left:auto;pointer-events:auto;padding:6px 14px;border-radius:99px;
+  border:1px solid #ffffff44;background:#0008;color:#fff;font-size:12px;touch-action:manipulation}
+#bLog{margin-left:0}
+#hudGoal{font-size:12px;color:#ffd28a;background:#0009;border:1px solid #ff9f1c44;border-radius:99px;padding:4px 10px}
+#diag{display:block;width:100%;max-width:none!important;font-size:11px;line-height:1.5;
+  white-space:normal!important;color:#9fe0c2;background:#0009!important;border:1px solid #ffffff22!important}
+#toast{position:absolute;left:50%;top:38%;transform:translateX(-50%);
+  background:#000c;border:1px solid #ff9f1c66;border-radius:14px;padding:12px 18px;
+  font-size:14px;pointer-events:none;max-width:80vw;text-align:center}
+#toast[hidden]{display:none}
+
+/* ---- 弹窗 ---- */
+dialog{background:#12232e;color:#fff;border:1px solid var(--line);border-radius:16px;
+  max-width:min(92vw,460px);width:100%;padding:18px}
+dialog::backdrop{background:#000a}
+dialog h3{margin:0 0 12px;font-size:17px}
+#dlgBody{font-size:13px;line-height:1.75;max-height:52vh;overflow:auto}
+#dlgBody .kv{display:flex;justify-content:space-between;gap:10px;
+  border-bottom:1px solid #ffffff12;padding:6px 0}
+#dlgBody pre{background:#0006;border-radius:10px;padding:10px;font-size:11px;
+  white-space:pre-wrap;word-break:break-all;max-height:28vh;overflow:auto;margin:10px 0 0}
+.ghost{padding:10px 14px;border:1px solid var(--line);border-radius:12px;
+  background:rgba(255,255,255,.10);color:#fff;font-size:13px;touch-action:manipulation}
+.dlgBtns{display:flex;gap:10px;align-items:center;margin-top:14px}
+.dlgBtns form{margin:0}
+
+/* ---- 竖屏 / 手机 ---- */
+@media (max-aspect-ratio: 1/1), (max-width: 820px){
+  .hero{width:100%;height:42%;top:auto;bottom:0;opacity:.42}
+  .hero-txt{display:none}
+  .bg-art{height:48%}
+  .panel{width:100%;height:100%;justify-content:flex-start;
+    padding:calc(env(safe-area-inset-top) + 66px) 20px calc(env(safe-area-inset-bottom) + 20px);
+    gap:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .brand{margin-bottom:2px}
+  h1{font-size:clamp(27px,8vw,40px)}
+  #subtitle{font-size:13px;white-space:normal}
+  .check-card{min-height:76px;padding:14px 16px;border-radius:18px}
+  .check-txt b{font-size:17px}
+  .check-txt small{font-size:12px}
+  .dot{width:32px;height:32px;font-size:17px}
+  .tabs button{min-height:58px;font-size:16px;border-radius:16px}
+  .tabs button svg{width:22px;height:22px}
+  .hint{font-size:13px}
+  .play{min-height:62px;font-size:22px}
+  .ready{font-size:12px}
+  .top-tools{top:calc(env(safe-area-inset-top) + 12px);right:16px}
+  .top-tools button{width:42px;height:42px}
+}
+
+</style>
+</head>
+<body>
+
+<div id="app">
+  <svg class="bg-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g fill="none" stroke="rgba(6,20,30,.28)" stroke-width="3">
+      <circle cx="150" cy="560" r="118"/><circle cx="150" cy="560" r="10"/>
+      <path d="M150 442 L150 678 M32 560 L268 560 M66 476 L234 644 M234 476 L66 644" stroke-width="2"/>
+    </g>
+    <g fill="rgba(6,20,30,.22)">
+      <rect x="280" y="596" width="46" height="104"/><rect x="334" y="566" width="30" height="134"/>
+      <rect x="372" y="610" width="58" height="90"/><rect x="438" y="580" width="36" height="120"/>
+      <rect x="482" y="624" width="70" height="76"/><rect x="560" y="592" width="42" height="108"/>
+      <rect x="610" y="616" width="86" height="84"/><rect x="704" y="570" width="34" height="130"/>
+      <rect x="746" y="606" width="64" height="94"/><rect x="818" y="586" width="40" height="114"/>
+      <rect x="866" y="620" width="96" height="80"/><rect x="970" y="596" width="44" height="104"/>
+      <rect x="1022" y="612" width="72" height="88"/><rect x="1102" y="578" width="38" height="122"/>
+      <rect x="1148" y="616" width="52" height="84"/>
+    </g>
+  </svg>
+
+  <div class="hero" id="hero"><img id="heroImg" alt="" hidden>
+    <div class="hero-ph" id="heroPh"><div class="hero-sun"></div></div>
+  </div>
+
+  <div class="top-tools">
+    <button id="bTouch" aria-label="触控说明" title="触控说明">
+      <svg viewBox="0 0 24 24"><path d="M9 11V5a1.6 1.6 0 0 1 3.2 0v5M12.2 10V8.4a1.6 1.6 0 0 1 3.2 0V11M15.4 10.4a1.6 1.6 0 0 1 3.2 0V14c0 4-2.6 6.6-6.4 6.6-3.2 0-4.8-1.6-6.4-4.4L3.4 12a1.7 1.7 0 0 1 2.8-1.9L9 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button id="bSet" aria-label="设置" title="设置">
+      <svg viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19.4 13.5c.1-.5.1-1 0-1.5l2-1.5-2-3.4-2.3 1a8 8 0 0 0-1.3-.8L15.5 4h-4l-.3 2.3a8 8 0 0 0-1.3.8l-2.3-1-2 3.4 2 1.5a8 8 0 0 0 0 1.5l-2 1.5 2 3.4 2.3-1a8 8 0 0 0 1.3.8l.3 2.3h4l.3-2.3a8 8 0 0 0 1.3-.8l2.3 1 2-3.4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <main class="panel">
+    <div class="brand">
+      <div class="logo"><span></span></div>
+      <div class="brand-txt">
+        <h1 id="title">启动器</h1>
+        <p id="subtitle">本机移植项目 · 使用你自己的游戏文件…</p>
+      </div>
+    </div>
+
+    <!-- 点整张卡 = 在浏览器里选你自己的游戏文件 -->
+    <label class="check-card" for="fFiles">
+      <span class="dot" id="dot">✓</span>
+      <span class="check-txt">
+        <b id="sourceLabel">"本机资源"</b>
+        <small id="checkDesc">尚未导入 · 点这里选择你的游戏文件（可多选，或选整个 zip）</small>
+      </span>
+      <span class="chev">›</span>
+    </label>
+    <input type="file" id="fFiles" multiple hidden>
+    <div class="import-row"><span id="importMeta"></span></div>
+
+    <div class="tabs" id="tabs">
+      <button data-mode="story" class="on">
+        <svg viewBox="0 0 24 24"><path d="M12 6.5C9.5 5 6.5 4.8 3.5 5.4v13c3-.6 6-.4 8.5 1 2.5-1.4 5.5-1.6 8.5-1v-13c-3-.6-6-.4-8.5 1Zm0 0v13" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+        <span id="tabStory">剧情模式</span>
+      </button>
+      <button data-mode="sandbox">
+        <svg viewBox="0 0 24 24"><path d="M3 5h7v14H3zM14 5h7v14h-7z" fill="none" stroke="currentColor" stroke-width="1.9"/></svg>
+        <span id="tabSandbox">沙盒模式</span>
+      </button>
+    </div>
+
+    <p class="hint" id="hint">游玩完整剧情与任务。继续上次存档，或从序章开始。</p>
+
+    <button class="play" id="go">
+      <span class="play-fill" id="playFill"></span>
+      <span class="play-inner"><span class="tri">▶</span><span id="playText">游玩</span></span>
+    </button>
+    <p class="ready" id="ready">触控按键已就绪</p>
+  </main>
+</div>
+
+<!-- 运行层：浏览器内 iframe，直接跑你导入的整站，不需要任何服务器 -->
+<div id="stage" hidden>
+  <iframe id="frame" title="运行层" allow="fullscreen; gamepad; autoplay"></iframe>
+  <div id="hud"><span id="hudMode">运行层</span><span id="hudGoal"></span><button id="exit">退出</button><button id="bLog">日志</button><span id="diag"></span></div>
+  <div id="toast" hidden></div>
+</div>
+
+<dialog id="dlg">
+  <h3 id="dlgTitle">设置</h3><div id="dlgBody"></div>
+  <div class="dlgBtns"><form method="dialog"><button class="ghost">关闭</button></form></div>
+</dialog>
+
+<script>
+/* 浏览器启动器：导入你的游戏文件 → 在浏览器内按原目录结构直接运行。
+   不架服务、不解压落盘、不联网、不要求你写任何接口。 */
+(function(){
+'use strict';
+
+var CONFIG={
+  title:'启动器',
+  subtitle:'本机移植项目 · 使用你自己的游戏文件…',
+  sourceLabel:'"本机资源"',
+  heroImage:'',                       // 例：'./hero.png'
+  storyName:'剧情模式', sandboxName:'沙盒模式',
+  storyHint:'游玩完整剧情与任务。继续上次存档，或从序章开始。',
+  sandboxHint:'自由漫游，无任务约束。',
+  readyText:'触控按键已就绪',
+  entryNames:['index.html','main.html','game.html','play.html','start.html','default.html']
+};
+
+var $=function(i){return document.getElementById(i)};
+var S={mode:'story',entries:[],byPath:{},byName:{},mapByBase:{},entry:'',logs:[],urls:[],resCache:{},resMeta:{},tick:0,req:0,hits:0,prefetched:0,decodes:0,prefetchQ:[],prefetchSet:{},active:0,bigActive:0,groups:{},rewriteMap:{},pathMemo:{},miss:0,t0:0,trace:[],lastPct:'',lastWarn:'',jsErr:0,lastMiss:'',cur:'',cacheBytes:0,status:'idle'};
+
+$('title').textContent=CONFIG.title;
+$('subtitle').textContent=CONFIG.subtitle;
+$('sourceLabel').textContent=CONFIG.sourceLabel;
+$('tabStory').textContent=CONFIG.storyName;
+$('tabSandbox').textContent=CONFIG.sandboxName;
+$('hint').textContent=CONFIG.storyHint;
+$('ready').textContent=CONFIG.readyText;
+document.title=CONFIG.title;
+if(CONFIG.heroImage){$('heroImg').src=CONFIG.heroImage;$('heroImg').hidden=false;$('heroPh').hidden=true}
+
+function log(m,l){var d=new Date(),p=function(n){return('0'+n).slice(-2)};
+  S.logs.push(p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())+' ['+(l||'info')+'] '+m);
+  if(S.logs.length>80)S.logs.shift()}
+/* 黑匣子：只记内存环形缓冲，不写 DOM、不联网；导出后即可当后台日志看 */
+function trace(ev,d){
+  var t=S.t0?Math.round(performance.now()-S.t0):0;
+  S.trace.push({t:t,ev:ev,d:d||{}});
+  if(S.trace.length>600)S.trace.shift();
+}
+function setReady(t){$('ready').textContent=t}
+function toast(m){var e=$('toast');e.textContent=m;e.hidden=false;clearTimeout(S._t);S._t=setTimeout(function(){e.hidden=true},3000)}
+function fmt(n){n=Number(n)||0;if(n>=1073741824)return(n/1073741824).toFixed(2)+' GB';if(n>=1048576)return(n/1048576).toFixed(1)+' MB';if(n>=1024)return(n/1024).toFixed(1)+' KB';return n+' B'}
+function digest(t){
+  if(window.crypto&&crypto.subtle&&window.TextEncoder){
+    return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){
+      return Array.prototype.slice.call(new Uint8Array(b),0,4).map(function(n){return('0'+n.toString(16)).slice(-2)}).join('')})}
+  return new Promise(function(r){var h=0;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;r(('00000000'+(h>>>0).toString(16)).slice(-8))})}
+
+/* ---------- iOS WKWebView 兼容：不依赖 Blob.arrayBuffer / Response(stream) ---------- */
+function readBuf(blob){
+  if(blob && typeof blob.arrayBuffer==='function')return blob.arrayBuffer();
+  return new Promise(function(res,rej){
+    var r=new FileReader();
+    r.onload=function(){res(r.result)};r.onerror=function(){rej(r.error||new Error('读取失败'))};
+    r.readAsArrayBuffer(blob);
+  });
+}
+function blobText(b){
+  if(b && typeof b.text==='function')return b.text();
+  return new Promise(function(res,rej){var r=new FileReader();
+    r.onload=function(){res(String(r.result))};r.onerror=function(){rej(r.error)};r.readAsText(b)});
+}
+function blobBuf(b){
+  if(b && typeof b.arrayBuffer==='function')return b.arrayBuffer();
+  return new Promise(function(res,rej){var r=new FileReader();
+    r.onload=function(){res(r.result)};r.onerror=function(){rej(r.error)};r.readAsArrayBuffer(b)});
+}
+/* 轻量 Response：绝不调用 new Response(BodyInit)，绕开 iOS 的 unsupported BodyInit type */
+function makeLocalResponse(blob,status,abP,txtP){
+  status=status||200;
+  var t=(blob&&blob.type)||'application/octet-stream';
+  var _ab=abP||null,_txt=txtP||null,_body=null;
+  var o={
+    ok:status>=200&&status<300,status:status,statusText:'',redirected:false,type:'basic',url:'',bodyUsed:false,
+    headers:{
+      get:function(k){return /content-type/i.test(k)?t:(/content-length/i.test(k)?String(blob.size):null)},
+      has:function(k){return /content-(type|length)/i.test(k)},
+      forEach:function(fn){fn(t,'content-type');fn(String(blob.size),'content-length')}
+    },
+    blob:function(){o.bodyUsed=true;return Promise.resolve(blob)},
+    // 同一响应被重复读时复用结果，不再把 Blob 重读一遍
+    arrayBuffer:function(){o.bodyUsed=true;if(!_ab)_ab=blobBuf(blob);return _ab},
+    text:function(){o.bodyUsed=true;if(!_txt)_txt=blobText(blob);return _txt},
+    json:function(){return o.text().then(JSON.parse)},
+    formData:function(){return Promise.reject(new Error('formData unsupported'))},
+    clone:function(){return makeLocalResponse(blob,status,abP,txtP)}
+  };
+  // body 惰性构造：绝大多数引擎只用 arrayBuffer()，不必每次请求都建流
+  try{
+    Object.defineProperty(o,'body',{configurable:true,get:function(){
+      if(_body)return _body;
+      if(blob && typeof blob.stream==='function')_body=blob.stream();
+      else _body=new ReadableStream({start:function(c){
+        blobBuf(blob).then(function(ab){c.enqueue(new Uint8Array(ab));c.close()})
+          .catch(function(e){c.error(e)});
+      }});
+      return _body;
+    }});
+  }catch(e){ /* 老 WebView 无 ReadableStream 时留空，loader 会退回 arrayBuffer() */ }
+  return o;
+}
+var EMPTY_BLOB=new Blob([''],{type:'text/plain'});
+/* ---------- zip：只读中央目录，按需解压单个文件 ---------- */
+async function zipEntries(file){
+  var tailLen=Math.min(file.size,65557+22);
+  var tail=new Uint8Array(await readBuf(file.slice(file.size-tailLen)));
+  var dv=new DataView(tail.buffer),e=-1;
+  for(var i=tail.length-22;i>=0;i--){if(tail[i]===0x50&&tail[i+1]===0x4b&&tail[i+2]===0x05&&tail[i+3]===0x06){e=i;break}}
+  if(e<0)throw new Error('不是有效的 zip（找不到目录结尾）');
+  var cnt=dv.getUint16(e+10,true),cs=dv.getUint32(e+12,true),co=dv.getUint32(e+16,true);
+  if(cnt===0xffff||cs===0xffffffff||co===0xffffffff){
+    var loc=e-20;
+    if(loc>=0&&dv.getUint32(loc,true)===0x07064b50){
+      var z64=Number(dv.getBigUint64(loc+8,true));
+      var z=new Uint8Array(await file.slice(z64,z64+56).arrayBuffer()),zd=new DataView(z.buffer);
+      if(zd.getUint32(0,true)===0x06064b50){cnt=Number(zd.getBigUint64(32,true));cs=Number(zd.getBigUint64(40,true));co=Number(zd.getBigUint64(48,true))}
+    }
+  }
+  if(!isFinite(co)||co<0||cs<0||cs>64*1024*1024)throw new Error('zip 目录异常（'+fmt(cs)+'）');
+  var cd=new Uint8Array(await readBuf(file.slice(co,co+cs))),cv=new DataView(cd.buffer),dec=new TextDecoder('utf-8'),out=[],p=0;
+  while(p+46<=cd.length&&cv.getUint32(p,true)===0x02014b50&&out.length<60000){
+    var method=cv.getUint16(p+10,true),comp=cv.getUint32(p+20,true),unc=cv.getUint32(p+24,true);
+    var nl=cv.getUint16(p+28,true),el=cv.getUint16(p+30,true),cl=cv.getUint16(p+32,true),lo=cv.getUint32(p+42,true);
+    var nm=dec.decode(cd.subarray(p+46,p+46+nl));
+    if(comp===0xffffffff||unc===0xffffffff||lo===0xffffffff){
+      var q=p+46+nl,end=q+el;
+      while(q+4<=end){var id=cv.getUint16(q,true),sz=cv.getUint16(q+2,true);
+        if(id===1){var r=q+4;
+          if(unc===0xffffffff&&r+8<=end){unc=Number(cv.getBigUint64(r,true));r+=8}
+          if(comp===0xffffffff&&r+8<=end){comp=Number(cv.getBigUint64(r,true));r+=8}
+          if(lo===0xffffffff&&r+8<=end){lo=Number(cv.getBigUint64(r,true))}
+          break}q+=4+sz}
+    }
+    out.push({name:nm,method:method,comp:comp,unc:unc,local:lo,dir:nm.slice(-1)==='/'});
+    p+=46+nl+el+cl;
+  }
+  return out;
+}
+async function decodePart(u8,e){
+  S.decodes++;
+  if(e.method===0)return new Blob([u8]);
+  if(e.method!==8)throw new Error('不支持的压缩方式 '+e.method);
+  if(typeof DecompressionStream==='undefined')throw new Error('此浏览器不支持 deflate-raw，请把游戏文件解压后多选导入');
+  var ds=new DecompressionStream('deflate-raw'),src;
+  try{ src=new Blob([u8]).stream(); }
+  catch(x){ src=new ReadableStream({start:function(c){c.enqueue(u8);c.close()}}); }
+  var reader=src.pipeThrough(ds).getReader(),chunks=[],r;
+  while(true){ r=await reader.read(); if(r.done)break; chunks.push(r.value); }
+  return chunks.length?new Blob(chunks):new Blob(['']);
+}
+async function zipExtract(file,e){
+  var comp=e.comp;
+  // store 大文件：零拷贝切片，绝不进内存
+  if(e.method===0&&comp>2*1024*1024){
+    if(e._start==null){
+      var hh=new Uint8Array(await readBuf(file.slice(e.local,e.local+Math.min(30+4096,file.size-e.local)))),hd0=new DataView(hh.buffer);
+      if(hd0.getUint32(0,true)!==0x04034b50)throw new Error('本地文件头损坏');
+      e._start=e.local+30+hd0.getUint16(26,true)+hd0.getUint16(28,true);
+    }
+    return file.slice(e._start,e._start+comp);
+  }
+  // 小文件：一次读把 local header + 压缩数据一起拿回，省一次异步往返
+  if(e._start==null){
+    var guess=30+4096+comp;
+    var blk=new Uint8Array(await readBuf(file.slice(e.local,e.local+Math.min(guess,file.size-e.local)))),hd=new DataView(blk.buffer);
+    if(hd.getUint32(0,true)!==0x04034b50)throw new Error('本地文件头损坏');
+    var off=30+hd.getUint16(26,true)+hd.getUint16(28,true);
+    e._start=e.local+off;
+    if(blk.length>=off+comp)return decodePart(blk.subarray(off,off+comp),e);
+  }
+  var part=new Uint8Array(await readBuf(file.slice(e._start,e._start+comp)));
+  return decodePart(part,e);
+}
+
+/* ---------- 路径 → 惰性 Blob；运行时按文件名兜底 ---------- */
+function addEntry(path,size,getter){
+  path=path.replace(/\\/g,'/').replace(/^\/+/,'');
+  var o={path:path,size:size,get:getter,url:null,finalUrl:null,busy:false,tried:false,_i:S.entries.length};
+  S.entries.push(o);S.byPath[path]=o;
+  var bn=path.split('/').pop();
+  if(!S.byName[bn])S.byName[bn]=[];S.byName[bn].push(o);
+}
+function resetEntries(){
+  S.urls.forEach(function(u){try{URL.revokeObjectURL(u)}catch(e){}});
+  S.urls=[];S.entries=[];S.byPath={};S.byName={};S.mapByBase={};S.resCache={};S.resMeta={};S.tick=0;S.req=0;S.hits=0;S.prefetched=0;S.decodes=0;S.prefetchQ=[];S.prefetchSet={};S.active=0;S.bigActive=0;S.groups={};S.rewriteMap={};S.pathMemo={};S.miss=0;S.t0=0;S.trace=[];S.lastPct='';S.lastWarn='';S.jsErr=0;S.lastMiss='';S.cur='';S.cacheBytes=0;S.entry='';
+}
+function norm(p,base){
+  p=String(p).split('#')[0].split('?')[0];
+  var rel=(p.charAt(0)==='/'?p.slice(1):(base?base+'/'+p:p));
+  var seg=[],parts=rel.replace(/\\/g,'/').split('/');
+  for(var i=0;i<parts.length;i++){
+    var x=parts[i];if(!x||x==='.')continue;
+    if(x==='..')seg.pop();else seg.push(x);
+  }
+  return seg.join('/');
+}
+function find(p,base){
+  var n=norm(p,base),o=S.byPath[n];
+  if(o)return o;
+  var bn=n.split('/').pop(),arr=S.byName[bn];
+  if(arr&&arr.length){
+    var hit=arr.filter(function(x){return x.path.toLowerCase().indexOf(n.toLowerCase())>=0});
+    return hit[0]||arr.sort(function(a,b){return a.path.length-b.path.length})[0];
+  }
+  // mapByBase 已覆盖全部 basename，未命中即真缺失；不再全表扫描（12569 项时是 O(N²) 热点）
+  return null;
+}
+var TYPES={js:'text/javascript',mjs:'text/javascript',css:'text/css',html:'text/html',htm:'text/html',
+  json:'application/json',wasm:'application/wasm',svg:'image/svg+xml',png:'image/png',jpg:'image/jpeg',
+  jpeg:'image/jpeg',gif:'image/gif',webp:'image/webp',mp3:'audio/mpeg',ogg:'audio/ogg',mp4:'video/mp4',
+  webm:'video/webm',woff:'font/woff',woff2:'font/woff2',ttf:'font/ttf',txt:'text/plain'};
+function mimeOf(p){var x=p.split('.').pop().toLowerCase();return TYPES[x]||'application/octet-stream'}
+function mkUrl(b,t){var u=URL.createObjectURL(b.type===t?b:new Blob([b],{type:t}));S.urls.push(u);return u}
+async function urlFor(o){
+  if(o.url)return o.url;
+  var b=await o.get(),t=mimeOf(o.path);
+  o.url=mkUrl(b,t);
+  return o.url;
+}
+function pickEntry(){
+  var c=CONFIG.entryNames;
+  for(var i=0;i<c.length;i++){
+    var arr=S.byName[c[i]];
+    if(arr&&arr.length){
+      arr.sort(function(a,b){return a.path.length-b.path.length});
+      return arr[0];
+    }
+  }
+  var html=S.entries.filter(function(e){return /\.html?$/i.test(e.path)});
+  html.sort(function(a,b){return a.path.length-b.path.length});
+  return html[0]||null;
+}
+
+/* ---------- 导入 ---------- */
+function render(){
+  var dot=$('dot'),n=S.entries.length;
+  if(!n){dot.className='dot warn';dot.textContent='!';$('checkDesc').textContent='没有读到文件，请重新选择。';$('importMeta').textContent='';return}
+  var total=S.entries.reduce(function(a,b){return a+(b.size||0)},0),e=pickEntry();
+  var head=S.entries[0].path.split('/')[0];
+  digest(S.entries.map(function(x){return x.path+':'+x.size}).join('|')).then(function(tag){
+    dot.className='dot ok';dot.textContent='✓';
+    $('checkDesc').textContent='在 '+head+' 文件夹中 · 所有文件均已检查';
+    $('importMeta').textContent='✓ '+n+' 项 · '+fmt(total)+' · 摘要 '+tag+(e?' · 入口 '+e.path:'');
+    setReady('已校验 '+n+' 项 · '+CONFIG.readyText);
+    log('导入 '+n+' 项，'+fmt(total)+'，摘要 '+tag+(e?'，入口 '+e.path:'，未发现 html 入口'));
+  });
+}
+async function onFiles(e){
+  var fs=Array.prototype.slice.call(e.target.files||[]);
+  if(!fs.length)return;
+  resetEntries();setReady('正在读取…');
+  try{
+    for(var i=0;i<fs.length;i++){
+      var f=fs[i];
+      if(/\.zip$/i.test(f.name)){
+        var list=await zipEntries(f);
+        for(var k=0;k<list.length;k++){
+          (function(ent,zf){
+            if(ent.dir)return;
+            addEntry(ent.name,ent.unc,function(){return zipExtract(zf,ent)});
+          })(list[k],f);
+        }
+        log('zip 目录：'+f.name+' → '+list.length+' 项（未解压，按需取）');
+      }else{
+        (function(ff){addEntry(ff.webkitRelativePath||ff.name,ff.size,function(){return Promise.resolve(ff)})})(f);
+      }
+    }
+    render();trace('import',{v:S.entries.length+' 项 / '+fmt(S.entries.reduce(function(a,b){return a+(b.size||0)},0))});
+  }catch(err){
+    $('dot').className='dot warn';$('dot').textContent='!';
+    $('checkDesc').textContent='读取失败：'+err.message+'。也可把文件解压后多选导入。';
+    setReady('读取失败 · '+err.message);log('读取失败：'+err.message,'error');
+  }
+}
+$('fFiles').onchange=onFiles;
+
+/* ---------- 全包兜底：把整个包的路径都变成浏览器内 Blob 地址 ---------- */
+var SKIP=/^(?:[a-z][a-z0-9+.-]*:|\/\/|#|data:|blob:|javascript:|mailto:)/i;
+var TEXT=/\.(?:html?|js|mjs|css|json|svg|txt|xml)$/i;
+function collectRefs(t){
+  var out={},re=/(?:src|href|poster|data|action)\s*=\s*(["'])([^"']+)\1|(?:url\s*\(\s*(["']?)([^)"']+)\3\s*\))|(?:fetch\s*\(\s*(["'])([^"']+)\5)|(?:(?:import|require)\s*\(?\s*(["'])([^"']+)\7)|(?:from\s+(["'])([^"']+)\9)|(?:new\s+Worker\s*\(\s*(["'])([^"']+)\11)|(?:importScripts\s*\(\s*(["'])([^"']+)\13)/gi,m;
+  while((m=re.exec(t))){
+    var v=m[2]||m[4]||m[6]||m[8]||m[10]||m[12]||m[14];
+    if(v&&!SKIP.test(v))out[v]=1;
+  }
+  return Object.keys(out).sort(function(a,b){return b.length-a.length});
+}
+function esc(r){return r.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+function replaceRefs(t,pairs){
+  pairs.forEach(function(x){
+    var q=esc(x[0]);
+    t=t.replace(new RegExp('([\'"\\(\\s])'+q+'(?=[\'"\\)\\s?#])','g'),function(_,p){return p+x[1]});
+  });
+  return t;
+}
+function baseOf(o){return o.path.indexOf('/')>=0?o.path.slice(0,o.path.lastIndexOf('/')):''}
+
+/* 递归改写：HTML 引用 JS/CSS，JS 里再动态 import / fetch / Worker —— 一路改成 blob URL */
+var MAX_URLS=400;
+async function materialize(o,depth){
+  if(o.finalUrl)return o.finalUrl;
+  if(o.busy)return await urlFor(o);           // 循环引用：退回原 blob
+  if(S.urls.length>=MAX_URLS){o.finalUrl=await urlFor(o);return o.finalUrl}
+  o.busy=true;
+  try{
+    var _b=await warm(o),u=mkUrl(_b,mimeOf(o.path));
+    if(depth>3||!TEXT.test(o.path)||o.size>6*1024*1024){o.finalUrl=u;return u}
+    var txt=await blobText(_b);   // 直接读已缓存的 Blob，不再绕 fetch(blob:)
+    var refs=collectRefs(txt),pairs=[];
+    for(var i=0;i<refs.length;i++){
+      var r=refs[i],t=find(r,baseOf(o));
+      if(!t||t===o)continue;
+      try{var _u=await materialize(t,depth+1);S.rewriteMap[r]=_u;pairs.push([r,_u])}
+      catch(e){log('跳过 '+r+'：'+e.message,'warn')}
+    }
+    txt=replaceRefs(txt,pairs).replace(/<base\b[^>]*>/gi,'');
+    if(pairs.length){
+      var nb=mkUrl(new Blob([txt],{type:mimeOf(o.path)}),mimeOf(o.path));
+      o.finalUrl=nb;
+      log('改写 '+o.path+' → '+pairs.length+' 个引用');
+      return nb;
+    }
+    o.finalUrl=u;return u;
+  }finally{o.busy=false}
+}
+
+/* 纯索引：一个文件都不读。19.75GB / 12569 项时 iOS 不会回收 File 句柄。 */
+function groupKeyOf(p){
+  var i=p.lastIndexOf('/'),dir=p.slice(0,i+1),b=p.slice(i+1);
+  var e=b.lastIndexOf('.'),ext=e>=0?b.slice(e).toLowerCase():'';
+  return dir+'|'+ext+'|'+b.replace(/\d+/g,'#');
+}
+function buildIndex(){
+  var g={},i,o,bn,k;
+  for(i=0;i<S.entries.length;i++){
+    o=S.entries[i];bn=o.path.split('/').pop();
+    if(!S.mapByBase[bn])S.mapByBase[bn]=o.path;
+    k=groupKeyOf(o.path);
+    if(!g[k])g[k]=[];
+    g[k].push(o.path);
+  }
+  S.groups=g;
+  log('已建索引 '+S.entries.length+' 项 · '+Object.keys(g).length+' 个资源组（零读取）');
+  return S.entries.length;
+}
+/* 运行时按需解析：父页面持有 File 闭包，iframe 通过同源 parent 调用 */
+var CACHE_MAX=24*1024*1024, CACHE_N=12;
+var _diagPend=false;
+function renderDiag(){
+  var el=$('diag'); if(!el)return;
+  var t='请求 '+S.req+' · 命中 '+S.hits+' · 预取 '+S.prefetched+' · 解压 '+S.decodes+' · 缓存 '+fmt(S.cacheBytes);
+  if(S.miss)t+=' · ⚠ 未命中 '+S.miss+(S.lastMiss?' ('+S.lastMiss.slice(-38)+')':'');
+  if(S.jsErr)t+=' · 页面错误 '+S.jsErr;
+  if(S.cur)t+=' · 当前 '+S.cur;
+  el.textContent=t;
+}
+function diag(force){                       // 高频请求时合并 DOM 写，避免同步布局开销
+  if(force){renderDiag();return;}
+  if(_diagPend)return;
+  _diagPend=true;
+  setTimeout(function(){_diagPend=false;renderDiag()},80);
+}
+function cacheTrim(){
+  var keys=Object.keys(S.resMeta),total=0,i;
+  for(i=0;i<keys.length;i++)total+=S.resMeta[keys[i]].size||0;
+  // 大分片降权：优先保留小文件，防止少数巨型块占满缓存
+  keys.sort(function(x,y){
+    var wx=(S.resMeta[x].size||0)>2*1024*1024?1e9:0;
+    var wy=(S.resMeta[y].size||0)>2*1024*1024?1e9:0;
+    return (wx+(S.resMeta[x].at||0))-(wy+(S.resMeta[y].at||0));
+  });
+  var guard=S.tick-6;                       // 最近 6 个刚解好的不清
+  while((total>CACHE_MAX||keys.length>CACHE_N)&&keys.length>1){
+    var k=keys.shift(),m=S.resMeta[k];
+    if((m.at||0)>guard||S.prefetchSet[k]){keys.push(k);break;}
+    total-=m.size||0;
+    if(m.o){m.o._blob=null;m.o._abP=null;}  // 同步快路径随之失效
+    delete S.resCache[k]; delete S.resMeta[k];
+  }
+  S.cacheBytes=total;
+}
+function noteMiss(u){
+  S.miss++; S.lastMiss=String(u);
+  if(S.miss<=12||S.miss%20===0)log('未命中：'+S.lastMiss,'warn');
+  diag(true);
+}
+function warm(o){
+  if(!o)return Promise.resolve(null);
+  if(o._blob)return Promise.resolve(o._blob);       // 已就绪：零异步
+  if(S.resCache[o.path])return S.resCache[o.path];
+  S.resCache[o.path]=Promise.resolve().then(function(){return o.get()}).then(function(b){
+    var t=mimeOf(o.path);
+    if(b.type!==t)b=new Blob([b],{type:t});
+    o._blob=b;
+    // 只做一次 Blob→ArrayBuffer；引擎对该文件的每次 arrayBuffer() 都复用它
+    o._abP=((b.size||0)<=2*1024*1024&&!/\.(?:webp|png|jpe?g|gif|mp3|ogg|mp4|webm|woff2?)$/i.test(o.path))?blobBuf(b):null;
+    S.resMeta[o.path]={size:b.size||0,at:++S.tick,o:o};
+    cacheTrim();
+    return b;
+  }).catch(function(e){delete S.resCache[o.path];delete S.resMeta[o.path];throw e});
+  return S.resCache[o.path];
+}
+/* 实测日志结论：预取 56 / 解压 69 / 命中 1 —— 68 次是白解压。
+   引擎两次请求间隔 3~16 秒，现场解压一个文件只要 5~22ms，
+   在内存吃紧的预览 WebView 里，预取只会触发 out-of-memory 看门狗。
+   故默认完全关闭：只保留「已交付文件」的命中缓存（重复请求 0ms）。 */
+function scheduleNext(){ /* 刻意不做任何预取 */ }
+function pump(){ S.prefetchQ.length=0;S.prefetchSet={};S.active=0;S.bigActive=0; }
+function resolver(path){
+  S.req++;
+  path=String(path).split('#')[0].split('?')[0];
+  var o=S.pathMemo[path];
+  if(o===undefined){o=S.byPath[path]||find(path,'');S.pathMemo[path]=o||null}
+  var bn=o?o.path.split('/').pop():path;
+  if(!o){noteMiss(path);trace('miss',{p:String(path).slice(-70)});return Promise.resolve(makeLocalResponse(EMPTY_BLOB,404))}
+  S.cur=bn+' '+fmt(o.size);
+  if(o._blob){S.hits++;trace('hit',{p:bn,ms:0});diag();scheduleNext(o);return Promise.resolve(makeLocalResponse(o._blob,200,o._abP))}
+  var _t=performance.now(),cold=!S.resCache[o.path];
+  if(S.resCache[o.path])S.hits++;
+  diag();scheduleNext(o);
+  return warm(o).then(function(b){trace(cold?'cold':'wait',{p:bn,ms:Math.round(performance.now()-_t),kb:Math.round((b.size||0)/1024)});return makeLocalResponse(b,200,o._abP)})
+    .catch(function(e){trace('fail',{p:bn,v:e.message});log('取文件失败 '+o.path+'：'+e.message,'error');throw e});
+}
+/* iframe 里不再内联 12569 键的 JSON（那本身就要几百 KB 常驻内存）。
+   所有动态请求直接把原始 URL 交给父页面 resolver，父页面持有完整索引。 */
+/* iframe 里不再内联 12569 键 JSON；已缓存资源走同步 URL 通道，省掉跨 iframe Promise 往返 */
+function guard(){
+  return [
+    '<script>(function(){',
+    'function G(){try{return window.__LAUNCHER_GET__||(window.parent!==window&&window.parent.__LAUNCHER_GET__)||null}catch(e){return null}}',
+    'function SY(){try{return window.__LAUNCHER_SYNC__||(window.parent!==window&&window.parent.__LAUNCHER_SYNC__)||null}catch(e){return null}}',
+    'function T(ev,d){try{var f=window.__LAUNCHER_TRACE__||(window.parent!==window&&window.parent.__LAUNCHER_TRACE__);if(f)f(ev,d||{})}catch(e){}}',
+    'function SKIP(u){u=String(u);return /^[a-z][a-z0-9+.-]*:/i.test(u)||u.slice(0,2)==="//"||u.charAt(0)==="#";}',
+    'window.addEventListener("error",function(e){T("js-error",{v:String(e.message||"").slice(0,180)})});',
+    'var CE=console.error;console.error=function(){try{T("console-error",{v:[].slice.call(arguments).join(" ").slice(0,180)})}catch(e){}return CE.apply(console,arguments)};',
+    'var CW=console.warn;console.warn=function(){try{T("console-warn",{v:[].slice.call(arguments).join(" ").slice(0,180)})}catch(e){}return CW.apply(console,arguments)};',
+    'window.addEventListener("unhandledrejection",function(e){T("reject",{v:String((e.reason&&e.reason.message)||e.reason||"").slice(0,180)})});',
+    'function NF(){return {ok:false,status:404,statusText:"Not Found",redirected:false,type:"basic",url:"",bodyUsed:false,',
+    '  headers:{get:function(){return null},has:function(){return false},forEach:function(){}},',
+    '  blob:function(){return Promise.resolve(new Blob([""]))},',
+    '  text:function(){return Promise.resolve("")},',
+    '  arrayBuffer:function(){return Promise.resolve(new ArrayBuffer(0))},',
+    '  json:function(){return Promise.reject(new Error("404"))},',
+    '  clone:function(){return NF()},body:null};}',
+    'var F=window.fetch;',
+    'window.fetch=function(u,o){',
+    '  if(SKIP(u))return F.call(window,u,o);',
+    '  var g=G();if(g)return g(String(u));',
+    '  return Promise.resolve(NF());',
+    '};',
+    'var O=XMLHttpRequest.prototype.open;',
+    'XMLHttpRequest.prototype.open=function(){',
+    '  var a=[].slice.call(arguments),u=a[1],sy=SY(),v=sy&&sy(String(u)),g=G();',
+    '  if(!SKIP(u)&&(v||g)){',
+    '    var self=this;self.__m=a[0];',
+    '    this.__get=v?Promise.resolve(v):g(String(u)).then(function(x){return x.blob()}).then(function(bb){return URL.createObjectURL(bb)});',
+    '    a[1]="about:blank";',
+    '  }',
+    '  return O.apply(this,a);',
+    '};',
+    'var S=XMLHttpRequest.prototype.send;',
+    'XMLHttpRequest.prototype.send=function(){',
+    '  if(this.__get){',
+    '    var self=this,args=arguments;',
+    '    return this.__get.then(function(u){',
+    '      self.__get=null;O.call(self,(self.__m||"GET"),u);',
+    '      return S.apply(self,args);',
+    '    });',
+    '  }',
+    '  return S.apply(this,arguments);',
+    '};',
+    'var I=window.Image;',
+    'if(I){',
+    '  window.Image=function(){',
+    '    var i=new I(),d=Object.getOwnPropertyDescriptor(I.prototype,"src");',
+    '    if(d&&d.set){Object.defineProperty(i,"src",{',
+    '      get:function(){return d.get.call(i)},',
+    '      set:function(v){',
+    '        if(SKIP(v)){d.set.call(i,v);return}',
+    '        var sy=SY(),u=sy&&sy(String(v));',
+    '        if(u){d.set.call(i,u);return}',
+    '        var g=G();',
+    '        if(g){g(String(v)).then(function(x){return x.blob()}).then(function(bb){d.set.call(i,URL.createObjectURL(bb))})}',
+    '        else{d.set.call(i,v)}',
+    '      }',
+    '    })}',
+    '    return i;',
+    '  };',
+    '  window.Image.prototype=I.prototype;',
+    '}',
+    'var W=window.Worker;',
+    'if(W){',
+    '  window.Worker=function(u,o){var f=SY(),v=(f&&f(String(u)))||u;return new W(v,o)};',
+    '  window.Worker.prototype=W.prototype;',
+    '}',
+    'var Q=window.WebSocket;',
+    'if(Q){',
+    '  window.WebSocket=function(u,p){var f=SY(),v=(f&&f(String(u)))||u;return new Q(v,p)};',
+    '  window.WebSocket.prototype=Q.prototype;',
+    '}',
+    '})();<\/script>'
+  ].join('\n');
+}
+
+function syncUrl(u){
+  var p=String(u).split('#')[0].split('?')[0];
+  var o=S.pathMemo[p]||S.byPath[p]||find(p,'');
+  S.pathMemo[p]=o||null;
+  if(!o||!o._blob)return null;
+  if(!o._url){o._url=URL.createObjectURL(o._blob);S.urls.push(o._url)}
+  return o._url;
+}
+function traceFromIframe(ev,d){
+  if(ev==='js-error'||ev==='reject')S.jsErr++;
+  trace(ev,d||{});
+}
+/* 采样引擎自己画出来的进度数字与内存告警（纯读 DOM，不发请求） */
+function sample(){
+  try{
+    var d=$('frame').contentDocument;if(!d||!d.body)return;
+    var t=(d.body.innerText||d.body.textContent||'').slice(-2500);
+    var m=t.match(/[0-9]{1,3}[ ]*%/g),pct=m?m[m.length-1].replace(/[ ]/g,''):null;
+    if(pct&&pct!==S.lastPct){S.lastPct=pct;trace('progress',{v:pct})}
+    var wi=t.lastIndexOf('No progress for ');
+    if(wi>=0){
+      var w=t.slice(wi,wi+90).split('\n')[0];
+      if(w&&w!==S.lastWarn){S.lastWarn=w;trace('engine-warn',{v:w})}
+    }
+  }catch(e){}
+}
+/* 导出：把时间线变成能发给我的一张文本 */
+function logText(){
+  var L=[],i;
+  L.push('启动器诊断日志');
+  L.push('时间: '+new Date().toLocaleString());
+  L.push('协议: '+location.protocol+' | 跨源隔离: '+(window.crossOriginIsolated?'是':'否'));
+  var pe=pickEntry();
+  L.push('导入: '+S.entries.length+' 项 | 入口: '+(pe?pe.path:'无')+' | 模式: '+S.mode);
+  L.push('汇总: 请求 '+S.req+' / 命中 '+S.hits+' / 预取 '+S.prefetched+' / 解压 '+S.decodes+' / 未命中 '+S.miss+' / 页面错误 '+S.jsErr+' / 缓存 '+fmt(S.cacheBytes));
+  L.push('--- 时间线(ms 相对启动) ---');
+  for(i=0;i<S.trace.length;i++){
+    var e=S.trace[i],x=e.d,v=[];
+    if(x.p)v.push(x.p);
+    if(x.ms!=null)v.push(x.ms+'ms');
+    if(x.kb!=null)v.push(x.kb+'KB');
+    if(x.v!=null)v.push(String(x.v).slice(0,140));
+    L.push(String(e.t).padStart(6,' ')+'  '+e.ev.padEnd(12,' ')+' '+v.join(' | '));
+  }
+  L.push('--- 最近运行日志 ---');
+  L=L.concat(S.logs.slice(-25));
+  return L.join('\n');
+}
+function copyLog(){
+  var txt=logText(),ta=document.createElement('textarea');
+  ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';ta.readOnly=true;
+  document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,txt.length);
+  try{document.execCommand('copy')}catch(e){}
+  ta.remove();
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).catch(function(){});
+  toast('日志已复制，粘贴发我即可');
+}
+function downloadLog(){
+  var txt=logText(),a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain;charset=utf-8'}));
+  a.download='launcher-log.txt';document.body.appendChild(a);a.click();
+  setTimeout(function(){try{URL.revokeObjectURL(a.href)}catch(e){}a.remove()},3000);
+}
+function openLog(){
+  openDlg('运行日志',
+    '<p style="opacity:.7;margin:0 0 8px">导入后每个请求、命中、进度变化都记在这里。发我这份，我就能对着时间线排查。</p>'+
+    '<pre id="traceBox" style="max-height:46vh;overflow:auto;white-space:pre-wrap;word-break:break-all;font-size:11px;line-height:1.5">'+logText().replace(/</g,'&lt;')+'</pre>'+
+    '<div style="display:flex;gap:8px;margin-top:10px"><button id="bCopy" class="ghost">复制</button><button id="bDown" class="ghost">下载 .txt</button></div>');
+  $('bCopy').onclick=copyLog;$('bDown').onclick=downloadLog;
+}
+
+var CSP="<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline' blob:; img-src 'self' blob: data:; media-src 'self' blob: data:; font-src 'self' blob: data:; connect-src 'self' blob: data:; form-action 'self'\">";
+
+/* ---------- 游玩 ---------- */
+async function start(){
+  if(S.status==='loading'||S.status==='running')return;
+  if(!S.entries.length){toast('请先点校验卡导入你的游戏文件');setReady('尚未导入 · 无法启动');return}
+  var e=pickEntry();
+  if(!e){toast('导入的文件里没有 html 入口');setReady('缺少入口 · 需要 index.html');return}
+  S.status='loading';$('go').disabled=true;
+  S.t0=performance.now();S.lastPct='';S.lastWarn='';
+  trace('start',{v:e.path+' / '+S.mode});
+  log('启动：入口 '+e.path+'，模式 '+S.mode);
+  setReady('建立索引…');
+  try{
+    var n=buildIndex();                       // 零读取
+    window.__LAUNCHER_GET__=resolver;
+    window.__LAUNCHER_SYNC__=syncUrl;
+    window.__LAUNCHER_MISS__=noteMiss;
+    window.__LAUNCHER_TRACE__=traceFromIframe;
+    var docUrl=await materialize(e,0);        // 只读取口 + 引用链上的小文件
+    var raw=await (await fetch(docUrl)).text();
+    var doc=CSP+guard()+raw;
+    var f=$('frame');
+    f.onload=function(){
+      try{f.contentWindow.__LAUNCHER_GET__=resolver;f.contentWindow.__LAUNCHER_SYNC__=syncUrl;f.contentWindow.__LAUNCHER_MISS__=noteMiss;f.contentWindow.__LAUNCHER_TRACE__=traceFromIframe}catch(err){log('iframe 注入失败，走 parent 通道','warn')}
+    };
+    f.srcdoc=doc;
+    $('app').style.display='none';$('stage').hidden=false;
+    var iso=!!window.crossOriginIsolated;
+    $('hudMode').textContent=(S.mode==='story'?CONFIG.storyName:CONFIG.sandboxName)+' · 本机运行';
+    $('hudGoal').textContent='入口 '+e.path.split('/').pop()+' · 已索引 '+n+' 项'+(iso?' · 已跨源隔离':'');
+    S.status='running';
+    setReady('运行中 · 纯浏览器 · 资源按需本地读取');
+    log('crossOriginIsolated='+iso+'，索引 '+n+' 项，预建 '+S.urls.length+' 个 URL');
+    diag(true);trace('running',{v:'索引 '+n+' 项'});
+    clearInterval(S._samp);S._samp=setInterval(sample,700);
+    toast('已运行 · 右上「日志」可导出');
+  }catch(err){
+    log('启动失败：'+err.message,'error');S.status='error';
+    setReady('启动失败 · '+err.message);toast(err.message);
+  }finally{
+    $('go').disabled=false;$('playFill').style.width='0';$('playText').textContent='游玩';
+  }
+}
+function stop(){
+  if(S.status!=='running')return;
+  $('frame').srcdoc='';$('stage').hidden=true;$('app').style.display='';
+  clearInterval(S._samp);trace('stop',{});
+  S.prefetchQ.length=0;S.prefetchSet={};S.active=0;S.bigActive=0;
+  S.entries.forEach(function(o){o._url=null});
+  S.status='idle';setReady(CONFIG.readyText);log('已退出');
+}
+$('go').onclick=start;$('exit').onclick=stop;$('bLog').onclick=openLog;
+
+Array.prototype.forEach.call(document.querySelectorAll('#tabs button'),function(b){
+  b.onclick=function(){
+    if(S.status==='running'){toast('运行中不能切模式，请先退出');return}
+    S.mode=b.dataset.mode;
+    Array.prototype.forEach.call(document.querySelectorAll('#tabs button'),function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    $('hint').textContent=S.mode==='story'?CONFIG.storyHint:CONFIG.sandboxHint;
+  };
+});
+
+function openDlg(t,h){$('dlgTitle').textContent=t;$('dlgBody').innerHTML=h;try{$('dlg').showModal()}catch(x){$('dlg').setAttribute('open','')}}
+$('bTouch').onclick=function(){
+  openDlg('怎么用',
+    '<p>① 点中间校验卡，从「文件」里<b>多选</b>你的游戏文件（index.html、js、css、资源），或直接选整个 <b>zip</b>。</p>'+
+    '<p>② 点「游玩」。启动器在<b>浏览器内部</b>把入口里的相对引用全部改写到本机文件，然后直接运行——<b>不需要服务器、不需要命令行、不需要你写任何接口</b>。</p>'+
+    '<p>③ 右上「退出」回到启动器。</p>'+
+    '<p style="opacity:.6">全程离线。iOS 不能选整个文件夹，所以多选或选 zip；20GB 的 zip 不会整包进内存，只按需取被引用的文件。</p>');
+};
+$('bSet').onclick=function(){
+  var e=pickEntry();
+  openDlg('设置与日志',
+    '<div class="kv"><span>方式</span><b>纯浏览器 Blob</b></div>'+
+    '<div class="kv"><span>打开协议</span><b>'+location.protocol+'</b></div>'+
+    '<div class="kv"><span>跨源隔离</span><b>'+(window.crossOriginIsolated?'已启用':'未启用')+'</b></div>'+
+    '<div class="kv"><span>已导入</span><b>'+S.entries.length+' 项</b></div>'+
+    '<div class="kv"><span>入口</span><b>'+(e?e.path:'无')+'</b></div>'+
+    '<div class="kv"><span>状态</span><b>'+S.status+'</b></div>'+
+    '<div class="kv"><span>请求 / 缓存命中 / 预取</span><b>'+S.req+' / '+S.hits+' / '+S.prefetched+'</b></div>'+
+    '<div class="kv"><span>解压次数 / 预取</span><b>'+S.decodes+' / '+S.prefetched+'（已关）</b></div>'+
+    '<div class="kv"><span>解压次数 / 未命中</span><b>'+S.decodes+' / '+S.miss+'</b></div>'+
+    '<div class="kv"><span>缓存体积</span><b>'+fmt(S.cacheBytes)+'</b></div>'+
+    (S.lastMiss?'<div class="kv"><span>最近未命中</span><b style="word-break:break-all;text-align:right">'+S.lastMiss.replace(/</g,'&lt;')+'</b></div>':'')+
+    '<p style="opacity:.6;margin:10px 0 0">无联网请求，无第三方资产。右上「日志」可复制/下载完整时间线。界面文案在 app.js 顶部 CONFIG 改。</p>'+
+    '<pre>'+S.logs.slice(-25).join('\n').replace(/</g,'&lt;')+'</pre>');
+};
+log('浏览器启动器就绪');setReady(CONFIG.readyText);
+})();
+
+</script>
+</body>
+</html>
