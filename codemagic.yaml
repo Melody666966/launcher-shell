@@ -1,0 +1,26 @@
+workflows:
+  ios-unsigned:
+    name: LauncherShell unsigned IPA
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+    environment:
+      xcode: latest
+    scripts:
+      - name: Install XcodeGen
+        script: brew install xcodegen
+      - name: Generate Xcode project
+        script: |
+          cd $CM_BUILD_DIR
+          xcodegen generate
+      - name: Build unsigned IPA
+        script: |
+          cd $CM_BUILD_DIR
+          xcodebuild -project LauncherShell.xcodeproj \
+            -scheme LauncherShell -configuration Release -sdk iphoneos \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+            -derivedDataPath build
+          mkdir -p Payload
+          cp -r build/Build/Products/Release-iphoneos/LauncherShell.app Payload/
+          zip -qr LauncherShell-unsigned.ipa Payload
+    artifacts:
+      - LauncherShell-unsigned.ipa
